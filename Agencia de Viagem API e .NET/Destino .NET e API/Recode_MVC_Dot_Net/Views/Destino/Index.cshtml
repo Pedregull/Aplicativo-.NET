@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Recode_MVC_Dot_Net.Models.Destino>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Página Principal</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar novo destino</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDoDestino)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoDestino)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DestinoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.DestinoId">Visualizar</a> |
+                <a asp-action="Delete" asp-route-id="@item.DestinoId">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
